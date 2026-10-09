@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+:root {
+  --bg: #07060b;
+  --surface: #110f19;
+  --surface-2: #1a1726;
+  --border: #2a2638;
+  --text: #f4f2ff;
+  --muted: #9b96b4;
+  --violet: #8b5cf6;
+  --cyan: #22d3ee;
+  --lime: #c6ff3d;
+  --pink: #ff4fa3;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-violet: var(--violet);
+  --color-cyan: var(--cyan);
+  --color-lime: var(--lime);
+  --color-pink: var(--pink);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--violet), var(--cyan) 45%, var(--lime));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow {
+  background:
+    radial-gradient(40% 35% at 20% 15%, color-mix(in srgb, var(--violet) 35%, transparent), transparent),
+    radial-gradient(35% 30% at 85% 40%, color-mix(in srgb, var(--cyan) 22%, transparent), transparent),
+    radial-gradient(30% 25% at 50% 90%, color-mix(in srgb, var(--pink) 18%, transparent), transparent);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee {
+    animation: none;
+  }
+}
